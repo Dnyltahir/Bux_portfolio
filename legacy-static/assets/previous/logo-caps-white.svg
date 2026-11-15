@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 100" role="img" aria-label="BUX">
+  <!-- BUX wordmark for dark backgrounds. -->
+  <g fill="#ffffff">
+    <path fill-rule="evenodd" d="M0 0H46A24 24 0 0 1 46 48A26 26 0 0 1 46 100H0Z M28 22H40a8 8 0 0 1 0 16H28Z M28 60H40a9 9 0 0 1 0 18H28Z"/>
+    <path d="M82 0h28v60a12 12 0 0 0 24 0V0h28v60a40 40 0 0 1-80 0z"/>
+    <path d="M168 0h32L209.5 16.96L193.5 45.54Z"/>
+    <path d="M230.5 54.46L256 100h-32L214.5 83.04Z"/>
+  </g>
+  <path fill="#ff4b1f" d="M224 0h32l-56 100h-32z"/>
+</svg>

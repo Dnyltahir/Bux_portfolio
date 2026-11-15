@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Bux">
+  <!-- Bux mark for dark backgrounds. -->
+  <path fill="#ffffff" d="M0 0h100a50 50 0 0 1 0 100a50 50 0 0 1 0 100H0z"/>
+  <circle cx="175" cy="175" r="25" fill="#ff4b1f"/>
+</svg>

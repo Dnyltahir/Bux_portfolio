@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- BUX monogram: the B from the wordmark, with its counters in the accent colour. -->
+  <rect width="100" height="100" rx="22" fill="#0b0b0b"/>
+  <g transform="translate(28.4 20) scale(0.6)">
+    <rect x="26" y="20" width="26" height="60" fill="#ff4b1f"/>
+    <path fill="#ffffff" fill-rule="evenodd" d="M0 0H46A24 24 0 0 1 46 48A26 26 0 0 1 46 100H0Z M28 22H40a8 8 0 0 1 0 16H28Z M28 60H40a9 9 0 0 1 0 18H28Z"/>
+  </g>
+</svg>

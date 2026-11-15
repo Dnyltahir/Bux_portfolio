@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* Design tokens (dark theme). Change --color-accent to re-colour the whole site. */
+@theme {
+  /* ink: the darkest tone, used for text on white or accent elements. */
+  --color-ink: #0b0b0b;
+  /* base: page background. surface: raised panels. paper: main text. */
+  --color-base: #0a0a0b;
+  --color-surface: #17171b;
+  --color-paper: #f1f1ef;
+  --color-accent: #ff4b1f;
+  --color-mist: #1c1c21;
+  --color-soft: #fbeee6;
+  --color-muted: #9b9ba3;
+
+  --font-sans: var(--font-geist), "Helvetica Neue", Arial, sans-serif;
+  --radius-card: clamp(18px, 2.2vw, 32px);
+
+  /* Motion language for CSS transitions. Matches components/motion/tokens.ts: one curve, fast by default. */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-duration: 250ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-pulse-dot: pulse-dot 1.6s ease-in-out infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-dot {
+    50% { transform: scale(0.55); opacity: 0.6; }
+  }
+}
+
+/* Vertical padding shared by every section, so the gaps between sections are even. */
+@utility section-pad {
+  padding-block: clamp(52px, 7vw, 112px);
+}
+
+/* Text link with an underline that slides in from the left on hover. Add link-slide-on to show it at rest. */
+@utility link-slide {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  padding-bottom: 2px;
+  transition:
+    background-size 500ms var(--ease-smooth),
+    color 250ms var(--ease-smooth),
+    opacity 250ms var(--ease-smooth);
+  &:hover,
+  &[aria-current="true"] {
+    background-size: 100% 1px;
+  }
+}
+@utility link-slide-on {
+  background-size: 100% 1px;
+}
+
+/* Page side padding, shared by every section. */
+@utility gutter {
+  padding-inline: clamp(16px, 2.6vw, 40px);
+}
+
+/* Scrolling is smoothed by Lenis (components/SmoothScroll.tsx), not by CSS. */
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Hero carousel (components/ProjectCarousel.tsx): the progress bar doubles as the slide timer. */
+.slide-progress {
+  animation: slide-progress linear forwards;
+}
+@keyframes slide-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Character scene (components/CharacterScene.tsx): idle animations. */
+.char-scene :is(.char-blink, .char-sway, .char-breathe, .char-float, .char-orbit, .char-rise) {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.char-blink { animation: char-blink 4.6s infinite; }
+.char-sway { transform-origin: 50% 100%; animation: char-sway 5s ease-in-out infinite; }
+.char-breathe { animation: char-breathe 4.2s ease-in-out infinite; }
+.char-float { animation: char-float 5.5s ease-in-out infinite; }
+.char-pulse { animation: char-pulse 3.2s ease-in-out infinite; }
+.char-orbit { animation: char-orbit 9s linear infinite; }
+.char-rise { opacity: 0; animation: char-rise 7s linear infinite; }
+
+@keyframes char-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+@keyframes char-sway {
+  0%, 100% { transform: rotate(-1.3deg); }
+  50% { transform: rotate(1.3deg); }
+}
+@keyframes char-breathe {
+  50% { transform: translateY(-2px); }
+}
+@keyframes char-float {
+  50% { transform: translateY(-9px); }
+}
+@keyframes char-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+@keyframes char-orbit {
+  to { transform: rotate(360deg); }
+}
+@keyframes char-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.9; }
+  100% { transform: translateY(-260px); opacity: 0; }
+}
+
+/* Off screen: freeze everything. */
+.char-scene[data-paused="true"] * {
+  animation-play-state: paused !important;
+}
+/* Touch screens: keep only the blink and the glow. */
+.char-scene[data-lite="true"] :is(.char-sway, .char-breathe, .char-float, .char-orbit) {
+  animation: none;
+}
+.char-scene[data-lite="true"] .char-rise {
+  animation: none;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char-scene * {
+    animation: none !important;
+  }
+  .char-scene .char-rise {
+    opacity: 0.6;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-pulse-dot {
+    animation: none;
+  }
+}

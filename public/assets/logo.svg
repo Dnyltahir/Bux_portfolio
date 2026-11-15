@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Bux">
+  <!-- Bux mark: a B built from a square and two half circles on a 2 x 2 grid, with an accent dot in the last cell. -->
+  <path fill="#0b0b0b" d="M0 0h100a50 50 0 0 1 0 100a50 50 0 0 1 0 100H0z"/>
+  <circle cx="175" cy="175" r="25" fill="#ff4b1f"/>
+</svg>

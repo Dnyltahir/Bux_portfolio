@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 100" role="img" aria-label="bux">
+  <!-- bux wordmark, lowercase. 20-unit stroke, 60-unit x-height. The accent dot sits in the bowl of the b. -->
+  <g fill="none" stroke="#0b0b0b" stroke-width="20">
+    <path d="M10 0V100"/>
+    <circle cx="40" cy="70" r="20"/>
+    <path d="M92 40V70a20 20 0 0 0 40 0V40"/>
+    <path d="M132 40V100"/>
+  </g>
+  <path fill="#0b0b0b" d="M154 40h25l47 60h-25z"/>
+  <path fill="#0b0b0b" d="M201 40h25l-47 60h-25z"/>
+  <circle cx="40" cy="70" r="10" fill="#ff4b1f"/>
+</svg>
